@@ -14,10 +14,10 @@ API_KEY = config('API_KEY', cast=str)
 
 genai.configure(api_key=API_KEY)
 
-generation_config = {
-    "temperature": 2,  # Controla a aleatoriedade das respostas
-    "top_p": 1,        # Nível de diversidade das respostas
-}
+generation_config = genai.GenerationConfig(
+    max_output_tokens=100,
+    temperature=0.7
+)
 
 system_instruction = "Você é um assistente amigável e técnico que responde de forma concisa."
 
